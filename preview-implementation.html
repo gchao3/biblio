@@ -806,6 +806,133 @@ a {
   line-height: 1.6;
 }
 
+/* ---------- Review showcase ---------- */
+.showcase {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 28px;
+  align-items: start;
+  margin-top: 8px;
+}
+
+.showcase-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: sticky;
+  top: 90px;
+}
+
+.showcase-step {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  text-align: left;
+  padding: 14px 16px;
+  border-radius: 11px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  cursor: pointer;
+  font-family: var(--font);
+  color: var(--text-secondary);
+  transition:
+    border-color 0.15s,
+    background 0.15s;
+}
+
+.showcase-step:hover {
+  border-color: var(--border-strong);
+}
+
+.showcase-step.active {
+  border-color: rgba(124, 127, 255, 0.45);
+  background: rgba(124, 127, 255, 0.06);
+}
+
+.showcase-step-idx {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--accent-2);
+  padding-top: 2px;
+}
+
+.showcase-step-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.showcase-step-text strong {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-2);
+  font-weight: 600;
+}
+
+.showcase-step.active .showcase-step-text em {
+  color: var(--text);
+}
+
+.showcase-step-text em {
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+}
+
+.showcase-frame {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: linear-gradient(180deg, #101114, #0a0b0d);
+  overflow: hidden;
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.5),
+    0 0 120px rgba(124, 127, 255, 0.06);
+}
+
+.showcase-img-wrap {
+  background: #0d1117;
+  max-height: 520px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.showcase-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.showcase-caption {
+  padding: 18px 22px;
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .showcase {
+    grid-template-columns: 1fr;
+  }
+
+  .showcase-steps {
+    position: static;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 8px;
+  }
+
+  .showcase-step {
+    min-width: 200px;
+  }
+
+  .showcase-img-wrap {
+    max-height: none;
+  }
+}
+
 /* ---------- Open core ---------- */
 .duo {
   display: grid;
@@ -1249,6 +1376,10 @@ a {
     padding: 130px 0 48px;
   }
 }
+
+.showcase-img-wrap{position:relative;min-height:240px;display:flex;align-items:center;justify-content:center}
+.showcase-img-wrap::after{content:'screenshot drops in here';position:absolute;color:var(--text-muted);font-size:13px;font-family:var(--mono)}
+.showcase-img{position:relative;z-index:1}
 </style></head><body><header class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="biblio-g" x1="0" y1="0" x2="24" y2="24"><stop stop-color="#7C7FFF"></stop><stop offset="1" stop-color="#B59AFF"></stop></linearGradient></defs><path d="M12 5.5C10.2 4.1 7.6 3.5 4.5 3.5c-.55 0-1 .45-1 1v13c0 .55.45 1 1 1 3.1 0 5.7.6 7.5 2 1.8-1.4 4.4-2 7.5-2 .55 0 1-.45 1-1v-13c0-.55-.45-1-1-1-3.1 0-5.7.6-7.5 2Z" stroke="url(#biblio-g)" stroke-width="1.6" stroke-linejoin="round"></path><path d="M12 5.5v15" stroke="url(#biblio-g)" stroke-width="1.6" stroke-linecap="round"></path></svg>Biblio <small>by Wonderly</small></a><nav class="nav-links"><a href="/#loop">How it works</a><a href="/#features">Product</a><a href="/#compare">Why Biblio</a><a href="/implementation">Implementation</a><a href="https://biblio.wonderly.info/docs/" target="_blank" rel="noreferrer">Docs</a></nav><div class="nav-cta"><a href="https://github.com/wonderlydotcom/wonderly-biblio" target="_blank" rel="noreferrer" class="btn btn-ghost">GitHub</a><a href="/#waitlist" class="btn btn-primary">Join the waitlist</a></div></div></header><main><section class="page-hero"><div class="container"><p class="kicker">Implementation</p><h1>Up and running in an afternoon.</h1><p>No local installs for your developers. No repo restructuring. No workflow changes. Biblio is a remote MCP server — connect your agents to it, point it at your docs, and turn the loop on.</p></div></section><div class="container"><div class="impl-step"><div class="impl-num">01</div><div class="impl-body"><h2>Deploy the server</h2><p>Self-host from <a class="inline-link" href="https://github.com/wonderlydotcom/wonderly-biblio" target="_blank" rel="noreferrer">GitHub</a> inside your own perimeter — Kubernetes-ready, with guidance for secrets management and reverse proxies. Bring <strong>Postgres</strong> for the full loop (the AGE, pgvector, and fuzzystrmatch extensions are initialized automatically) or <strong>SQLite</strong> for a lightweight trial. An OpenAI API key powers embeddings for semantic search and graph memory.</p><div class="cap-table"><table><thead><tr><th>Capability</th><th>Postgres</th><th>SQLite</th></tr></thead><tbody><tr><td>Full-text search over docs &amp; snippets</td><td class="yes">✓</td><td class="yes">✓</td></tr><tr><td>Vector search (sections &amp; code samples)</td><td class="yes">✓</td><td class="no">—</td></tr><tr><td>Graph-indexed team memory</td><td class="yes">✓</td><td class="no">—</td></tr><tr><td>Best for</td><td>Production</td><td>Evaluation</td></tr></tbody></table></div></div></div><div class="impl-step"><div class="impl-num">02</div><div class="impl-body"><h2>Compose your knowledge into partitions</h2><p>A <strong>partition</strong> is a virtual documentation repository. Point one at any GitHub repo and branch with inclusion/exclusion filters, or author documents directly in Biblio&#x27;s web editor. Content syncs on a schedule (8 hours by default) or on demand — your agents always read the latest, with zero developer-side syncing.</p><ul class="impl-list"><li><span><strong>Split by context:</strong> backend, frontend, infra, security — agents query a focused partition instead of one giant doc pile.</span></li><li><span><strong>Compose per project:</strong> a monorepo can pull backend + frontend + infra partitions together — no git submodules.</span></li><li><span><strong>Reuse everywhere:</strong> org-wide guidelines (e.g. security) get included in every project without duplication.</span></li></ul><div class="codeblock"><div class="codeblock-head">partition config — illustrative; see docs for full schema</div><pre>{
   &quot;Name&quot;: &quot;backend-net-kb&quot;,
   &quot;Description&quot;: &quot;C# / .NET backend standards, written for the LLM&quot;,

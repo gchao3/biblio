@@ -3,6 +3,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Waitlist from "@/components/Waitlist";
 import LoopDiagram from "@/components/LoopDiagram";
+import ReviewShowcase from "@/components/ReviewShowcase";
 
 export default function Home() {
   return (
@@ -483,6 +484,10 @@ export default function Home() {
                   native — pipe it to Datadog or any backend.
                 </p>
               </div>
+            </div>
+
+            <div style={{ marginTop: 64 }}>
+              <ReviewShowcase />
             </div>
           </div>
         </section>
