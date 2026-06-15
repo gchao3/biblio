@@ -802,6 +802,96 @@ a {
   line-height: 1.6;
 }
 
+/* ---------- Cost spotlight ---------- */
+.cost-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.cost-text h2 {
+  margin-bottom: 22px;
+}
+
+.cost-lede {
+  font-size: 16px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  max-width: 520px;
+}
+
+.cost-lede strong {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.cost-chips {
+  display: flex;
+  gap: 12px;
+  margin-top: 26px;
+  flex-wrap: wrap;
+}
+
+.cost-chip {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-card);
+}
+
+.cost-chip-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-2);
+  font-weight: 600;
+}
+
+.cost-chip-val {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.cost-frame {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #0d1117;
+  overflow: hidden;
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.5),
+    0 0 120px rgba(124, 127, 255, 0.07);
+}
+
+.cost-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-top: 1px solid var(--border);
+}
+
+.cost-caption {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .cost-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .cost-visual {
+    order: -1;
+  }
+}
+
 /* ---------- Review showcase ---------- */
 .showcase {
   display: grid;

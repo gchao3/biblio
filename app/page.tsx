@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Waitlist from "@/components/Waitlist";
 import LoopDiagram from "@/components/LoopDiagram";
 import ReviewShowcase from "@/components/ReviewShowcase";
+import CostSpotlight from "@/components/CostSpotlight";
 
 export default function Home() {
   return (
@@ -211,11 +212,14 @@ export default function Home() {
               </div>
             </div>
             <p className="pivot-line">
-              The fix isn&apos;t a bigger AGENTS.md.{" "}
-              <strong>It&apos;s a closed loop.</strong>
+              Inconsistent code you can&apos;t enforce.{" "}
+              <strong>And spend you can&apos;t see.</strong>
             </p>
           </div>
         </section>
+
+        {/* ============ COST SPOTLIGHT ============ */}
+        <CostSpotlight />
 
         {/* ============ THE LOOP ============ */}
         <section className="section section-border" id="loop">
